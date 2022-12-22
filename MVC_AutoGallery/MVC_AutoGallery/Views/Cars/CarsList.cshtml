@@ -1,0 +1,45 @@
+﻿@using MVC_AutoGallery.Models.Entity
+@model List<Tbl_Cars>
+@{
+    ViewBag.Title = "CarsList";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr style="background-color:orangered">
+        <th>ARAÇ ID</th>
+        <th>PLAKA</th>
+        <th>YIL</th>
+        <th>RENK</th>
+        <th>YAKIT TÜRÜ</th>
+        <th>SATIŞ FİYATI</th>
+        <th>KİRA FİYATI</th>
+        <th>ŞUBE</th>
+        <th>MODEL</th>
+        <th>MARKA</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    <tbody style="border-block-color:black; background-color:antiquewhite">
+        @foreach (var car in Model)
+        {
+            <tr>
+                <th>@car.Car_Id</th>
+                <td>@car.Car_Plate</td>
+                <td>@car.Car_Year</td>
+                <td>@car.Car_Color</td>
+                <td>@car.Car_Fuel</td>
+                <td>@car.Car_SalePrice</td>
+                <td>@car.Car_RentPrice</td>
+                <td>@car.Tbl_Stores.Store_Name</td>
+                <td>@car.Tbl_Models.Model_Name</td>
+                <td>@car.Tbl_Models.Tbl_Brands.Brand_Name</td>
+                <td> <a href="/Cars/Delete/@car.Car_Id" class="btn btn-danger">SİL</a></td>
+                <td> <a href="/Cars/Update/@car.Car_Id" class="btn btn-primary">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Cars/AddCar/" class="btn btn-success" style="margin-top:15px">YENİ ARAÇ EKLE</a>
+
+

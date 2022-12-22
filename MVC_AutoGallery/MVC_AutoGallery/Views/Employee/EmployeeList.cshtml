@@ -1,0 +1,38 @@
+﻿@using MVC_AutoGallery.Models.Entity
+@model List<Tbl_Employee>
+@{
+    ViewBag.Title = "EmployeeList";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr style="background-color:cadetblue">
+        <th>PERSONEL ID</th>
+        <th>PERSONEL AD</th>
+        <th>PERSONEL SOYAD</th>
+        <th>PERSONEL TC NO</th>
+        <th>PERSONEL TEL NO</th>
+        <th>PERSONEL EMAIL</th>
+        <th>ŞUBE</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    <tbody style="border-block-color:black;background-color:antiquewhite">
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <th>@emp.Employee_Id</th>
+                <td>@emp.Employee_Name</td>
+                <td>@emp.Employee_Surname</td>
+                <td>@emp.Employee_TC</td>
+                <td>@emp.Employee_Phone</td>
+                <td>@emp.Employee_Email</td>
+                <td>@emp.Tbl_Stores.Store_Name</td>
+                <td> <a href="/Employee/Delete/@emp.Employee_Id" class="btn btn-danger">SİL</a></td>
+                <td> <a href="/Employee/GetEmployee/@emp.Employee_Id" class="btn btn-primary">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Employee/AddEmployee/" class="btn btn-success" style="margin-top:15px">YENİ PERSONEL EKLE</a>
+

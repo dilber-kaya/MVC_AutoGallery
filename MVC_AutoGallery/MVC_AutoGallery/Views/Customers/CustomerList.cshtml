@@ -1,0 +1,37 @@
+﻿@using MVC_AutoGallery.Models.Entity
+@model List<Tbl_Customers>
+@{
+    ViewBag.Title = "CustomerList";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr style="background-color:orchid">
+        <th>MÜŞTERİ ID</th>
+        <th>MÜŞTERİ AD</th>
+        <th>MÜŞTERİ SOYAD</th>
+        <th>MÜŞTERİ TC NO</th>
+        <th>MÜŞTERİ EHLİYET NO</th>
+        <th>MÜŞTERİ TEL NO</th>
+        <th>MÜŞTERİ EMAIL</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    <tbody style="border-block-color:black; background-color:antiquewhite">
+        @foreach (var cust in Model)
+        {
+            <tr>
+                <th>@cust.Customer_Id</th>
+                <td>@cust.Customer_Name</td>
+                <td>@cust.Customer_Surname</td>
+                <td>@cust.Customer_TC</td>
+                <td>@cust.Customer_DLicence</td>
+                <td>@cust.Customer_Phone</td>
+                <td>@cust.Customer_Email</td>
+                <td> <a href="/Customers/Delete/@cust.Customer_Id" class="btn btn-danger">SİL</a></td>
+                <td> <a href="/Customers/Update/@cust.Customer_Id" class="btn btn-primary">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Customers/AddCustomer/" class="btn btn-success" style="margin-top:15px">YENİ MÜŞTERİ EKLE</a>

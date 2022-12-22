@@ -1,0 +1,31 @@
+﻿@model MVC_AutoGallery.Models.Entity.Tbl_Employee
+@{
+    ViewBag.Title = "AddEmployee";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label style="margin-top:15px">Personel Adı</label>
+        <input type="text" class="form-control" name="Employee_Name" />
+        <label>Personel Soyadı</label>
+        <input type="text" class="form-control" name="Employee_Surname" />
+        <label>Personel TC No</label>
+        <input type="text" class="form-control" name="Employee_TC" />
+        <label>Personel Tel No</label>
+        <input type="text" class="form-control" name="Employee_Phone" />
+        <label>Personel Email</label>
+        <input type="text" class="form-control" name="Employee_Email" />
+        <label>Şube</label>
+        @Html.DropDownListFor(x => x.Tbl_Stores.Store_Id, (List<SelectListItem>)ViewBag.Values, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Personel Ekle</button>
+    </div>
+    <script>
+
+            $('#btn').click(function () { alert("Personel Ekleme İşlemi Başarılı....")
+            }
+            );
+    </script>
+</form>

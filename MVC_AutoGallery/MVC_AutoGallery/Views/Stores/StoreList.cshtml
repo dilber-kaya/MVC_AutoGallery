@@ -1,0 +1,30 @@
+﻿@using MVC_AutoGallery.Models.Entity
+@model List<Tbl_Stores>
+@{
+    ViewBag.Title = "StoreList";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr style="background-color:plum">
+        <th>ŞUBE ID</th>
+        <th>ŞUBE AD</th>
+        <th>ADRES</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    <tbody style="border-block-color:black;background-color:antiquewhite">
+        @foreach (var str in Model)
+        {
+            <tr>
+                <th>@str.Store_Id</th>
+                <td>@str.Store_Name</td>
+                <td>@str.Store_Adress</td>
+                <td> <a href="/Stores/Delete/@str.Store_Id" class="btn btn-danger">SİL</a></td>
+                <td> <a href="/Stores/Update/@str.Store_Id" class="btn btn-primary">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Stores/AddStore/" class="btn btn-success" style="margin-top:15px">YENİ ŞUBE EKLE</a>
+

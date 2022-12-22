@@ -1,0 +1,39 @@
+﻿@model MVC_AutoGallery.Models.Entity.Tbl_Cars
+@{
+    ViewBag.Title = "AddCar";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label style="margin-top:15px">Plaka</label>
+        <input type="text" class="form-control" name="Car_Plate" />
+        <label>Yıl</label>
+        <input type="text" class="form-control" name="Car_Year" />
+        <label>Renk</label>
+        <input type="text" class="form-control" name="Car_Color" />
+        <label>Yakıt Türü</label>
+        <input type="text" class="form-control" name="Car_Fuel" />
+        <label>Satış Fiyatı</label>
+        <input type="text" class="form-control" name="Car_SalePrice" />
+        <label>Kira Fiyatı</label>
+        <input type="text" class="form-control" name="Car_RentPrice" />
+        <label>Şube</label>
+        @Html.DropDownListFor(x => x.Tbl_Stores.Store_Id, (List<SelectListItem>)ViewBag.Stores, new { @class = "form-control" })
+        <label>Marka</label>
+        @Html.DropDownListFor(x => x.Tbl_Models.Tbl_Brands.Brand_Id, (List<SelectListItem>)ViewBag.Brands, new { @class = "form-control" })
+        <label>Model</label>
+        @Html.DropDownListFor(x => x.Tbl_Models.Model_Id, (List<SelectListItem>)ViewBag.Models, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Araç Ekle</button>
+    </div>
+    <script>
+
+        $('#btn').click(function () {
+            alert("Araç Ekleme İşlemi Başarılı....")
+        }
+        );
+    </script>
+</form>
+

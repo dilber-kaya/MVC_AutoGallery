@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "AddCustomer";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label style="margin-top:15px">Müşteri Adı</label>
+        <input type="text" class="form-control" name="Customer_Name" />
+        <label>Müşteri Soyadı</label>
+        <input type="text" class="form-control" name="Customer_Surname" />
+        <label>Müşteri TC No</label>
+        <input type="text" class="form-control" name="Customer_TC" />
+        <label>Müşteri Ehliyet No</label>
+        <input type="text" class="form-control" name="Customer_DLicence" />
+        <label>Müşteri Tel No</label>
+        <input type="text" class="form-control" name="Customer_Phone" />
+        <label>Müşteri Email</label>
+        <input type="text" class="form-control" name="Customer_Email" />
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Müşteri Ekle</button>
+    </div>
+
+    <script>
+
+            $('#btn').click(function () { alert("Müşteri Ekleme İşlemi Başarılı....")
+            }
+            );
+    </script>
+
+</form>
